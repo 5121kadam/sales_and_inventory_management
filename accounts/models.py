@@ -121,7 +121,7 @@ class Vendor(models.Model):
     
     class Meta:
         """Meta options for the Vendor Model."""
-        Verbose_name = 'Vendor'
+        verbose_name = 'Vendor'
         verbose_name_plural = 'Vendors'
 
 class Customer(models.Model):

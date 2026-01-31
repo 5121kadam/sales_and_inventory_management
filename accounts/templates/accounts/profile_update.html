@@ -1,0 +1,68 @@
+{% extends 'store/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+<div class="container my-4">
+  <div class="box-main row">
+    <div class="col-md-3 col-lg-3"></div>
+
+    <div class="col-md-6 col-lg-6">
+      <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <h1 id="header" class="text-success">Edit Your Profile</h1>
+
+        <div class="float-label mb-3">
+          <label>Username</label>
+          <span class="text-danger">{{ u_form.username.errors }}</span>
+          {{ u_form.username }}
+        </div>
+
+        <div class="float-label mb-3">
+          <label>Email</label>
+          <span class="text-danger">{{ u_form.email.errors }}</span>
+          {{ u_form.email }}
+        </div>
+
+        <div class="float-label mb-3">
+          <label>Secondary email</label>
+          <span class="text-danger">{{ p_form.email.errors }}</span>
+          {{ p_form.email }}
+        </div>
+
+        <div class="float-label mb-3">
+          <label>First name</label>
+          <span class="text-danger">{{ p_form.first_name.errors }}</span>
+          {{ p_form.first_name }}
+        </div>
+
+        <div class="float-label mb-3">
+          <label>Last name</label>
+          <span class="text-danger">{{ p_form.last_name.errors }}</span>
+          {{ p_form.last_name }}
+        </div>
+
+        <div class="float-label mb-3">
+          <label>Mobile number</label>
+          <span class="text-danger">{{ p_form.telephone.errors }}</span>
+          {{ p_form.telephone }}
+        </div>
+
+        <div class="float-label mb-3">
+          <label>Profile Picture</label>
+          {{ p_form.profile_picture }}
+          {% if avatar_name %}
+            <p>Stored: {{ avatar_name|safe }}</p>
+          {% endif %}
+        </div>
+
+        <button type="submit" class="btn btn-success">Update</button>
+      </form>
+    </div>
+
+    <div class="col-md-3 col-lg-3"></div>
+  </div>
+</div>
+{% endblock %}
